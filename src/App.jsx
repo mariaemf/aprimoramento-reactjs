@@ -5,7 +5,11 @@ import { Post } from "./Post";
 export function App() {
   return (
     <>
-      <Post />
+      <Post
+        author="Maria Freitas"
+        content="estou estudando para aprimorar meu desenvolvimento"
+      />
+      <Post author="Sérgio Luiz" content="Nova atualização de emprego" />
     </>
   );
 }

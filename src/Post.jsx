@@ -1,5 +1,11 @@
-export function Post() {
-  return <p>Post</p>;
-}
+// props: {author: " ", content: " " }
 
-export default Post;
+export function Post(props) {
+  //console.log(props);
+  return (
+    <>
+      <strong>{props.author}</strong>
+      <p>{props.content}</p>
+    </>
+  );
+}
