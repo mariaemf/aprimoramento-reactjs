@@ -1,10 +1,14 @@
 import styles from "./Header.module.css";
+import igniteLogo from "../assets/ignite-logo.svg";
 
 export function Header() {
   return (
     <>
-      <header></header>
-      <strong className={styles.header}>Social Feed</strong>;
+      <header className={styles.header}>
+        <img src={igniteLogo} alt="Logotipo do Ignite" />
+        {/*sempre que queremos colocar uma variavel 
+       é necessário colocar chaves */}
+      </header>
     </>
   );
 }

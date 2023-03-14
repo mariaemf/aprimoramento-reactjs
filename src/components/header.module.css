@@ -1,5 +1,14 @@
 .header {
-  background: #333;
-  height: 80px;
-  /*define altura*/
+  background: var(--gray-800);
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 0;
+  /*1.25rem cima e baixo e 0 nas laterais
+  1rem = 16px 
+  0.25 - 4px*/
+}
+
+.header img {
+  height: 2rem;
+  /*32px = para definir altura deste elemento */
 }
