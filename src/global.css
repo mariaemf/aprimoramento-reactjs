@@ -1,0 +1,53 @@
+:root {
+  /*variaveis css para facilitar na importacao*/
+  --white: #fff;
+  /*e bom coloca o branco para que se algum dia eu queira mudar, fica mais simples e manutenivel*/
+  --gray-100: #e1e1e6;
+  --gray-300: #c4c4cc;
+  --gray-400: #8d8d99;
+  --gray-600: #323238;
+  --gray-700: #29292e;
+  --gray-800: #202024;
+  --gray-900: #121214;
+
+  --green-500: #00875f;
+}
+
+
+* {
+  margin: 0;
+  /*tirando a margin de todos os estilos */
+  padding: 0;
+  box-sizing: border-box;
+  /*para calcular o tamanho total do 
+  elemento levando em conta o preenchimento e a borda ->
+   significa que a soma total do elemento será a soma do seu
+    conteudo interno ->
+   ele facilita o dimensionamento do elemento em layout
+    responsivos  */
+}
+
+body {
+  background-color: var(--gray-900);
+  color: var(--gray-300);
+  -webkit-font-smoothing: antialiased;
+  /*controla como as fonte sao renderizadas
+   em navegadores baseados em webkit, o navegador basicamente 
+   suavisa as bordas das fontes resultando em um texto mais 
+   legivel e nitido*/
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  /*peso da fonte*/
+  font-size: 1rem;
+  /*Sempre que usar css estar utilizando unidade de
+   medidas relativas
+  para melhorar a acessibilidade da aplicacao 
+  1rem = 16px -> se usar fonte fixa mesmo que o usuario 
+  aumente a fonte no dispositivo ela permanece da mesma maneira*/
+}
