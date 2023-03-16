@@ -1,0 +1,24 @@
+.wrapper {
+  max-width: 70rem;
+  /*largura maxima - 1120*/
+  margin: 2rem auto;
+  /*32px em cima e baixo e aos lados auto 
+  -> faz com que fique centralizado na tela o wrapper */
+  padding: 0 1rem;
+  /*faz com que se diminuirmos a tela 
+  menor que 70rem o conteudo nao fique colado nas laterais
+  ele de um espacamento de 16px*/
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  /*a primeira coluna possui uma largura fixa
+  de 256px e a segunda coluna ira se 
+  adaptar pra quanto couber na tela 
+  1fr -> tam q usamos no grid para dizer que tera tam flexivel*/
+  gap: 2rem;
+  /*espaçamento entre as colunas (32px)*/
+  align-items: flex-start;
+  /*faz com que os itens fiquem 
+  alinhados ao topo (o padrao nao é alinhar ao topo,
+   e sim que os dois tenham
+  o mesmo tamanho)*/
+}
