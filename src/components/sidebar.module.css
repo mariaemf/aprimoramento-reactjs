@@ -1,0 +1,52 @@
+.sidebar {
+  background: var(--gray-800);
+  border-radius: 8px;
+  /*para arredondar a borda*/
+  overflow: hidden;
+  /*para q todo conteudo q ultrapasse as bordas seja ocultado*/
+}
+
+.cover {
+  width: 100%;
+  height: 72px;
+  /*definindo altura do elemento*/
+  object-fit: cover;
+  /*usado para controlar a imagem ajustando dentro do elemento pai, comprimindo a imagem para caber no espaco, cortando pedacinhos da imagem sem distorcer a mesma */
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  /*para que o nome do usuário e o cargo fiquem um abaixo do outro (deixando os itens emm colunas)*/
+  align-items: center;
+  /*alinhar itens ao centro*/
+}
+
+/*nao foi criado uma classe para o foter pois na mesma so havera apenas 1*/
+
+
+.sidebar footer {
+  border-top: 1px solid var(--gray-600);
+  /*borda solida c 1px na parte superior do elemento*/
+  margin-top: 1.5rem;
+  /*20px*/
+  padding: 1.5rem 2rem 2rem;
+  /* 1.5 = top 2rem laterais 2rem -> bottom*/
+}
+
+.sidebar footer a {
+  background: transparent;
+  color: var(--green-500);
+  border: 1px solid var(--green-500);
+  border-radius: 8px;
+  height: 50px;
+  padding: 0 1.5rem;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
