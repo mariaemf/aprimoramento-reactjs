@@ -20,6 +20,38 @@
   /*para que o nome do usuário e o cargo fiquem um abaixo do outro (deixando os itens emm colunas)*/
   align-items: center;
   /*alinhar itens ao centro*/
+  margin-top: calc(0px - 1.5rem - 6px);
+  /*cal para deixar a img alinhada ao container*/
+}
+
+.avatar {
+  box-sizing: initial;
+  /*Faz com que quando adicionamos borda,
+   padding, margin, outline em um elemento que isso avance um
+    espaço a+ e NÃO que esprema
+   um elemento para caber dentro do container*/
+  width: 3rem;
+  /*largura da img*/
+  height: 3rem;
+  /*altura da img*/
+  border-radius: 8px;
+  /*normalmente n e usado rem e border-radius pois o rem é utilizado para coisas que representam tamanhos na tela (lar, altura, tam de fonte)*/
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+}
+
+.profile strong {
+  margin-top: 1rem;
+  color: var(--gray-100);
+  line-height: 1.6;
+  /*define altura da linha*/
+}
+
+.profile span {
+  font-size: 0.875rem;
+  /*0.875rem * */
+  color: var(--gray-400);
+  list-style: 1.6rem;
 }
 
 /*nao foi criado uma classe para o foter pois na mesma so havera apenas 1*/
@@ -49,4 +81,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.25rem;
+  /*para dar espaco do texto e o icone*/
+
+  transition: color 0.1s;
+  background-color: 0.1s;
+}
+
+.sidebar footer a:hover {
+  background: var(--green-500);
+  color: var(--white);
 }
