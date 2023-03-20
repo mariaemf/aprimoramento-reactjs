@@ -1,1 +1,155 @@
-.post {}
+.post {
+  background: var(--gray-800);
+  border-radius: 8px;
+  /*arredondamento das laterais*/
+  padding: 2.5rem;
+  /*define distancia entre conteudo do 
+  elemento e suas bordas*/
+
+}
+
+
+/*para demonstrar que queremos estilizar 
+  todo conteudo de post 
+  que antes dele contenha um post tb*/
+
+
+.post+.post {
+  margin-top: 2rem;
+  /*só sera aplicado para
+   posts que contenham outros posts antes dele*/
+}
+
+.content {
+  line-height: 1.6;
+  /*controlar espacamento entre linhas do texto*/
+  color: var(--gray-300);
+  margin-top: 1.5rem;
+  /*distancia de margin e topo*/
+}
+
+.content p {
+  margin-top: 1rem;
+}
+
+.content a {
+  font-weight: bold;
+  color: var(--green-500);
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: var(--green-300);
+}
+
+.post>header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post>header time {
+  font-size: 0.875rem;
+  /*14px*/
+  color: var(--gray-400);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author img {
+  box-sizing: initial;
+  /*Faz com que quando adicionamos borda,
+   padding, margin, outline em um elemento que isso avance um
+    espaço a+ e NÃO que esprema
+   um elemento para caber dentro do container*/
+  width: 3rem;
+  /*largura da img*/
+  height: 3rem;
+  /*altura da img*/
+  border-radius: 8px;
+  /*normalmente n e usado rem e border-radius pois o rem é utilizado para coisas que representam tamanhos na tela (lar, altura, tam de fonte)*/
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+}
+
+/*.authorInfo {
+  display: flex;
+  flex-direction: column;
+  /*para forçar que sempre fiquem
+  um abaixo do outro*/
+
+.authorInfo strong {
+  display: block;
+  color: var(--gray-100);
+  line-height: 1.6;
+
+}
+
+.authorInfo span {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.commentForm {
+  width: 100%;
+  /*a tag form por padrao n tem width 100%*/
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-600);
+}
+
+.commentForm>strong {
+  line-height: 1.6;
+  color: var(--gray-100);
+}
+
+.commentForm textarea {
+  width: 100%;
+  background: var(--gray-900);
+  border: 0;
+  resize: none;
+  /*para nao permitir que o mesmo seja ajustado 
+  -> para que o tamanho fique fixo e
+   nao seja ajustado na interface*/
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--gray-100);
+  line-height: 1.4;
+  margin-top: 1rem;
+}
+
+.commentForm button[type=submit] {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+
+  transform: background-color 0.1s;
+
+
+}
+
+.commentForm button[type=submit]:hover {
+  background: var(--green-300);
+}
+
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+}
+
+.commentForm:focus-within {
+  visibility: visible;
+  max-height: none;
+}
