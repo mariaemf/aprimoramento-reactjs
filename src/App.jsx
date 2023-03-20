@@ -19,6 +19,7 @@ export function App() {
         importante apenas teste de commit */}
         <main>
           <Post />
+          <Post />
         </main>
       </div>
     </Fragment>
