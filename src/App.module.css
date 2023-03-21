@@ -22,3 +22,24 @@
    e sim que os dois tenham
   o mesmo tamanho)*/
 }
+
+/*quando a tela for MENOR q 768px (bom para app mobile)*/
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    /*para q o grid tenha apenas uma coluna*/
+  }
+}
+
+/*
+pensando que 16 = 100%
+14 -> x ? 
+14 * 100 / 16
+
+então o font-size em percentual precisa ser 87.5%
+
+*/

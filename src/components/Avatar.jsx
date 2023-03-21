@@ -16,7 +16,7 @@ de default para as propriedades
       className={hasBorder ? styles.avatarWithBorder : styles.avatar}
       /*se nas propriedades contem hasBorder:
       Eu mostro styles.avatarWithBorder, se não, eu mostro apenas styles.avatar*/
-      src={props.src}
+      src={src}
     />
   );
 }
