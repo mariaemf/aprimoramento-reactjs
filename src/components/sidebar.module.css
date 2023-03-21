@@ -24,21 +24,6 @@
   /*cal para deixar a img alinhada ao container*/
 }
 
-.avatar {
-  box-sizing: initial;
-  /*Faz com que quando adicionamos borda,
-   padding, margin, outline em um elemento que isso avance um
-    espaço a+ e NÃO que esprema
-   um elemento para caber dentro do container*/
-  width: 3rem;
-  /*largura da img*/
-  height: 3rem;
-  /*altura da img*/
-  border-radius: 8px;
-  /*normalmente n e usado rem e border-radius pois o rem é utilizado para coisas que representam tamanhos na tela (lar, altura, tam de fonte)*/
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500);
-}
 
 .profile strong {
   margin-top: 1rem;

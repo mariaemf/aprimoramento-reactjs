@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./sidebar.module.css";
 import { PencilSimpleLine } from "@phosphor-icons/react";
+import { Avatar } from "./Avatar";
 
 export function Sidebar() {
   return (
@@ -12,7 +13,9 @@ export function Sidebar() {
       />
       {/* Essa div será o perfil do usuário */}
       <div className={styles.profile}>
-        <img className={styles.avatar} src="https://github.com/mariaemf.png" />
+        {/*e entao dentro do avatar que será passado o src conforme for 
+      o usuário */}
+        <Avatar src="https://github.com/mariaemf.png" />
 
         <strong>Maria Freitas</strong>
         <span>Web Developer</span>
