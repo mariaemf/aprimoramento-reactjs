@@ -12,7 +12,7 @@ import styles from "./Post.module.css";
 // é passado a desestruturação pra evitar a repetição de props
 //em todo momento -> {props.author.avatarUrl}
 
-export function Post({ author, publishedAt }) {
+export function Post({ author, publishedAt, content }) {
   //passando como primeiro parametro o publishedAt e o 2° é o formato
   //esse formato é de acordo com a documentacao da lib instalada
   //alem disso foi passado aspas duplas por volta do formato
@@ -65,20 +65,27 @@ export function Post({ author, publishedAt }) {
             {publishedDateRelativeToNow}
           </time>
         </header>
+        {/* para percorrer o array passamos o conteudo das propriedades
+        por volta do mesmo é passado um map pois queremos percorrer e 
+        retornar algo (comentario) e para cada linha do array é feito algo
+        por isso é colocado {  } por volta do mesmo 
+        -> se a linha for do tipo páragrafo, será retornado um paragrafo 
+        e dentro do mesmo retorna um line.content 
+        -> se a linha for do tipo link, a mesma sera um paragrafo mas de lnk 
+        
+        */}
         <div className={styles.content}>
-          <p>Fala galeraa 👋 </p>
-          <p></p>Acabei de subir mais um projeto no meu portifa. É um projeto
-          que fiz
-          <p>
-            no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare
-            🚀
-          </p>
-          <p>
-            👉 <a href="">jane.design/doctorcare</a>
-          </p>
-          <p>
-            <a href="">#rocketseat</a> <a href="">#nlw</a> <a>#novoprojeto </a>{" "}
-          </p>
+          {content.map((line) => {
+            if (line.type === "paragraph") {
+              return <p>{line.content}</p>;
+            } else if (line.type === "link") {
+              return (
+                <p>
+                  <a href="">{line.content}</a>
+                </p>
+              );
+            }
+          })}
         </div>
 
         <form className={styles.commentForm}>
