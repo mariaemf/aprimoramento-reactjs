@@ -24,8 +24,8 @@ const post = [
   {
     id: 1,
     author: {
-      avatarUrl: "https://github.com/mariemf.png",
-      nome: "Maria Freitas",
+      avatarUrl: "https://github.com/mariaemf.png",
+      name: "Maria Freitas",
       role: "Web development",
     },
     content: [
@@ -37,13 +37,13 @@ const post = [
       },
       { type: "link", content: "jane.design/doctorcare" },
     ],
-    publisheAt: new Date("2023-03-21 19:35:00"),
+    publishedAt: new Date("2023-03-21 19:35:00"),
   },
   {
     id: 2,
     author: {
       avatarUrl: "https://github.com/mateussp97.png",
-      nome: "Mateus Souza",
+      name: "Mateus Souza",
       role: "software engineer",
     },
     content: [
@@ -55,7 +55,7 @@ const post = [
       },
       { type: "link", content: "jane.design/doctorcare" },
     ],
-    publisheAt: new Date("2023-03-21 19:20:00"),
+    publishedAt: new Date("2023-03-21 19:20:00"),
   },
 ];
 
@@ -75,7 +75,7 @@ export function App() {
               <Post
                 author={post.author}
                 content={post.content}
-                publisheAt={post.publisheAt}
+                publishedAt={post.publishedAt}
               />
             );
           })}

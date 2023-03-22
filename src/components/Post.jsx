@@ -1,28 +1,68 @@
+import { format, formatDistanceToNow } from "date-fns";
+
+import ptBR from "date-fns/locale/pt-BR";
+
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
+
 import styles from "./Post.module.css";
 
-export function Post(props) {
-  console.log(props);
+//export function Post(props)
+//-> poderiamos deixar dessa maneira, but
+// é passado a desestruturação pra evitar a repetição de props
+//em todo momento -> {props.author.avatarUrl}
+
+export function Post({ author, publishedAt }) {
+  //passando como primeiro parametro o publishedAt e o 2° é o formato
+  //esse formato é de acordo com a documentacao da lib instalada
+  //alem disso foi passado aspas duplas por volta do formato
+  //e dentro das mesmas contem letras com aspas simples
+  //isso para deixarmos 'escapar' as letras e q a lib
+  //nao entenda que deve formatar a mesma :)
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
+
+  //essa var vai armazenar a data de publicacao do post relativa ao
+  //momento atual e iremos usar outra funcao do date-fns que se chama
+  //formatDistanceToNow
+  //a formatDistanceToNow recebe uma data (no caso a publishedAt)
+  //onde a mesma ira comparar essa data com o agora
+  //o publishedDateRelativeToNow sera usado dentro do time
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR, //para passar o local
+    addSuffix: true, // para gerar e prefixo de quanto tempo foi publicado
+  });
+
   return (
     <>
       <article className={styles.post}>
         <header>
           <div className={styles.author}>
-            <Avatar src="https://github.com/mateussp97.png" />
+            {/* passado a props, buscando o author dentro da mesma e 
+          fazendo busca por avatarUrl que se encontra dentro de author */}
+            <Avatar src={author.avatarUrl} />
             {/*colocado + uma div ao redor 
             para facilitar na estilização do nome e cargo */}
             <div className={styles.authorInfo}>
-              <strong>Maria Freitas</strong>
-              <span>Web Developer</span>
+              <strong>{author.name}</strong>
+              <span>{author.role}</span>
             </div>
           </div>
           {/*esse title dentro do time é para quando
           o usuário passar o mouse por cima 
           demonstrar a hora exata em que o post/publicacao 
           foi postado */}
-          <time title="20 de março as 14:19" dateTime="2023/05/11 14:17">
-            Publicado há 1 hora
+          <time
+            title={publishedDateFormatted}
+            dateTime={publishedAt.toISOString()}
+          >
+            {publishedDateRelativeToNow}
           </time>
         </header>
         <div className={styles.content}>
