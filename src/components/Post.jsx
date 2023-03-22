@@ -1,6 +1,7 @@
 import { format, formatDistanceToNow } from "date-fns";
 
 import ptBR from "date-fns/locale/pt-BR";
+import { useState } from "react";
 
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
@@ -19,6 +20,9 @@ export function Post({ author, publishedAt, content }) {
   //e dentro das mesmas contem letras com aspas simples
   //isso para deixarmos 'escapar' as letras e q a lib
   //nao entenda que deve formatar a mesma :)
+
+  const [comments, setComments] = useState([1, 2]);
+
   const publishedDateFormatted = format(
     publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
@@ -38,6 +42,12 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBR, //para passar o local
     addSuffix: true, // para gerar e prefixo de quanto tempo foi publicado
   });
+
+  function handleCreateNewComment() {
+    event.preventDefault();
+
+    setComments([...comments, setComments]);
+  }
 
   return (
     <>
@@ -88,7 +98,7 @@ export function Post({ author, publishedAt, content }) {
           })}
         </div>
 
-        <form className={styles.commentForm}>
+        <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
           <strong>Deixe o seu feedback</strong>
           {/*textarea =>  controle de edição para uma caixa de texto,
            útil quando você quer permitir ao usuário informar um texto
@@ -103,9 +113,11 @@ export function Post({ author, publishedAt, content }) {
         </form>
 
         <div className={styles.commentList}>
-          <Comment />
-          <Comment />
-          <Comment />
+          {/*percorrendo os comentarios e para cada comentario esta sendo 
+          retornado um componente comentário */}
+          {comments.map((comment) => {
+            return <Comment />;
+          })}
         </div>
       </article>
     </>
