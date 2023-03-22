@@ -45,8 +45,12 @@ export function Post({ author, publishedAt, content }) {
 
   function handleCreateNewComment() {
     event.preventDefault();
-
-    setComments([...comments, setComments]);
+    /*copiando todos os comentarios ja existente usando o
+spread (ele le o valor da variavel e copia os mesmos)
+  */
+    setComments([...comments, comments.length + 1]);
+    /*comments.length pega o tamanho do array de comentários e 
+adiciona +1*/
   }
 
   return (
