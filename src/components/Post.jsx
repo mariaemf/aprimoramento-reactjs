@@ -23,6 +23,15 @@ export function Post({ author, publishedAt, content }) {
 
   const [comments, setComments] = useState(["Post muito bacana, heim?"]);
 
+  /*dentro do estado inciamos c o texto q sera passado, 
+  como e um texto, inciamos com uma string vazia 
+  sempre e importante passar para o estado iniciando o mesmo tipo 
+  de informacao que iremos usar posteriormente (string -> usado string) 
+  então se formos iniciar c um texto e importante iniciar c uma string vazia
+  se for um array de comentarios, e importante inciar com pelo menos um array vazio
+  */
+  const [newCommentText, setnewCommentText] = useState("");
+
   const publishedDateFormatted = format(
     publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
@@ -54,6 +63,16 @@ spread (ele le o valor da variavel e copia os mesmos)
     setComments([...comments, newCommentsText]);
     /*cada texto que o autor passar e clickar no botao de comentar sera rende
     rizado na tela */
+
+    setnewCommentText("");
+    //apos passar o comentario o mesmo ira voltar para o valor em branco
+  }
+
+  function handleNewCommentChange() {
+    setnewCommentText(event.target.value);
+    {
+      /*para salvar o valor q o usuari esta digitando (func passada no onchange) */
+    }
   }
 
   return (
@@ -113,7 +132,15 @@ spread (ele le o valor da variavel e copia os mesmos)
             comentário ou formulário de retorno.
             placeholder é uma sugestao 
             de como pode ser usado p o usuario */}
-          <textarea name="comment" placeholder="Deixe um comentário" />
+          <textarea
+            name="comment"
+            placeholder="Deixe um comentário"
+            onChange={handleNewCommentChange}
+            value={newCommentText}
+          />
+          {/*toda vez q o valor de newCommentText mudar, a text area ira 
+          refletir essa alteracao, deixando o campo de comentario limpo */}
+
           <footer>
             <button type="submit">Publicar</button>
           </footer>
