@@ -2,7 +2,7 @@ import { Trash, ThumbsUp } from "@phosphor-icons/react";
 import { Avatar } from "./Avatar";
 import styles from "./comment.module.css";
 
-export function Comment() {
+export function Comment({ content }) {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/mariaemf.png" />
@@ -20,7 +20,10 @@ export function Comment() {
               <Trash size={24} />
             </button>
           </header>
-          <p>Muito bom, parabéns 👏👏</p>
+          {/*passando a desestruturacao para aparecer apenas o 
+          content, nao 
+          o props.content */}
+          <p>{content}</p>
         </div>
 
         <footer>

@@ -21,7 +21,7 @@ export function Post({ author, publishedAt, content }) {
   //isso para deixarmos 'escapar' as letras e q a lib
   //nao entenda que deve formatar a mesma :)
 
-  const [comments, setComments] = useState([1, 2]);
+  const [comments, setComments] = useState(["Post muito bacana, heim?"]);
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -48,9 +48,12 @@ export function Post({ author, publishedAt, content }) {
     /*copiando todos os comentarios ja existente usando o
 spread (ele le o valor da variavel e copia os mesmos)
   */
-    setComments([...comments, comments.length + 1]);
-    /*comments.length pega o tamanho do array de comentários e 
-adiciona +1*/
+
+    const newCommentsText = event.target.comment.value;
+
+    setComments([...comments, newCommentsText]);
+    /*cada texto que o autor passar e clickar no botao de comentar sera rende
+    rizado na tela */
   }
 
   return (
@@ -110,17 +113,17 @@ adiciona +1*/
             comentário ou formulário de retorno.
             placeholder é uma sugestao 
             de como pode ser usado p o usuario */}
-          <textarea placeholder="Deixe um comentário" />
+          <textarea name="comment" placeholder="Deixe um comentário" />
           <footer>
             <button type="submit">Publicar</button>
           </footer>
         </form>
+        {/*percorrendo os comentarios e para cada comentario esta sendo 
+          retornado um componente comentário */}
 
         <div className={styles.commentList}>
-          {/*percorrendo os comentarios e para cada comentario esta sendo 
-          retornado um componente comentário */}
           {comments.map((comment) => {
-            return <Comment />;
+            return <Comment content={comment} />;
           })}
         </div>
       </article>
