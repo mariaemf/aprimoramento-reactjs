@@ -75,6 +75,11 @@ spread (ele le o valor da variavel e copia os mesmos)
     }
   }
 
+  /*funcao que ira receber qual comentario queremos remover */
+  function deletComment() {
+    console.log(`Deletar comentário ${comment}`);
+  }
+
   return (
     <>
       <article className={styles.post}>
@@ -152,9 +157,16 @@ spread (ele le o valor da variavel e copia os mesmos)
 
         <div className={styles.commentList}>
           {comments.map((comment) => {
-            return <Comment key={comment} content={comment} />;
+            return (
+              <Comment
+                key={comment}
+                content={comment}
+                deletComment={deletComment}
+              />
+            );
           })}
         </div>
+        {/*passando a funcao de deletcomment como propriedade */}
       </article>
     </>
   );
