@@ -75,9 +75,18 @@ spread (ele le o valor da variavel e copia os mesmos)
     }
   }
 
-  /*funcao que ira receber qual comentario queremos remover */
-  function deletComment() {
-    console.log(`Deletar comentário ${comment}`);
+  /*funcao que ira receber qual comentario queremos remover 
+  -> toda vez queremos remover comentario a unica maneira 
+  e utilizando a funcao setcomments pois possui o valor
+  atualizado
+  -> criando nova lista de comentarios, sem o valor que nao quero mais 
+  */
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter((comment) => {
+      return comment !== commentToDelete;
+    });
+
+    setComments(commentsWithoutDeletedOne);
   }
 
   return (
@@ -161,7 +170,7 @@ spread (ele le o valor da variavel e copia os mesmos)
               <Comment
                 key={comment}
                 content={comment}
-                deletComment={deletComment}
+                onDeleteComment={deleteComment}
               />
             );
           })}
