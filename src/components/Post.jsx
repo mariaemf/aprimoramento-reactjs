@@ -153,8 +153,13 @@ spread (ele le o valor da variavel e copia os mesmos)
             placeholder="Deixe um comentário"
             onChange={handleNewCommentChange}
             value={newCommentText}
+            required
           />
-          {/*toda vez q o valor de newCommentText mudar, a text area ira 
+          {/*
+          propriedade required, recebe false ou true mas como queremos 
+          que ela seja obrih
+          
+          toda vez q o valor de newCommentText mudar, a text area ira 
           refletir essa alteracao, deixando o campo de comentario limpo */}
 
           <footer>
