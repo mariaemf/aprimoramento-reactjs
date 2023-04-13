@@ -70,7 +70,6 @@ spread (ele le o valor da variavel e copia os mesmos)
 
   function handleNewCommentChange() {
     event.target.setCustomValidity("");
-
     setnewCommentText(event.target.value);
     {
       /*para salvar o valor q o usuari esta digitando (func passada no onchange) */
@@ -94,6 +93,7 @@ spread (ele le o valor da variavel e copia os mesmos)
     setComments(commentsWithoutDeletedOne);
   }
 
+  var isNewCommentEmpty = newCommentText.length === 0;
   return (
     <>
       <article className={styles.post}>
@@ -168,8 +168,11 @@ spread (ele le o valor da variavel e copia os mesmos)
           toda vez q o valor de newCommentText mudar, a text area ira 
           refletir essa alteracao, deixando o campo de comentario limpo */}
 
+          {/*desabilitadno botao caso o valor digitado seja = a 0 */}
           <footer>
-            <button type="submit">Publicar</button>
+            <button type="submit" disabled={isNewCommentEmpty}>
+              Publicar
+            </button>
           </footer>
         </form>
         {/*percorrendo os comentarios e para cada comentario esta sendo 
