@@ -69,10 +69,15 @@ spread (ele le o valor da variavel e copia os mesmos)
   }
 
   function handleNewCommentChange() {
+    event.target.setCustomValidity("");
+
     setnewCommentText(event.target.value);
     {
       /*para salvar o valor q o usuari esta digitando (func passada no onchange) */
     }
+  }
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity("Este campo é obrigatório!");
   }
 
   /*funcao que ira receber qual comentario queremos remover 
@@ -153,6 +158,7 @@ spread (ele le o valor da variavel e copia os mesmos)
             placeholder="Deixe um comentário"
             onChange={handleNewCommentChange}
             value={newCommentText}
+            onInvalid={handleNewCommentInvalid}
             required
           />
           {/*
